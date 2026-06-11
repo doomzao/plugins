@@ -1,0 +1,21 @@
+[
+  {
+    "Author": "doomzao",
+    "Name": "Mask of Kefka",
+    "InternalName": "MaskOfKefka",
+    "Punchline": "Streamer mode: stream the game without showing Dalamud overlays.",
+    "Description": "Streamer mode / stream mode for FFXIV. Creates a second window with a clean image of the game (no ImGui/Dalamud) for capture in OBS. Optionally shows the scene without the game UI.",
+    "Tags": [ "streamer mode", "stream mode", "streamer", "streaming", "stream", "obs", "overlay", "hide", "utility" ],
+    "ApplicableVersion": "any",
+    "RepoUrl": "https://github.com/doomzao/mask-of-kefka",
+    "AssemblyVersion": "0.1.0.0",
+    "DalamudApiLevel": 15,
+    "LastUpdate": 1781201918,
+    "DownloadCount": 0,
+    "IsHide": false,
+    "IsTestingExclusive": false,
+    "DownloadLinkInstall": "https://github.com/doomzao/mask-of-kefka/releases/latest/download/latest.zip",
+    "DownloadLinkTesting": "https://github.com/doomzao/mask-of-kefka/releases/latest/download/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/doomzao/mask-of-kefka/releases/latest/download/latest.zip"
+  }
+]
