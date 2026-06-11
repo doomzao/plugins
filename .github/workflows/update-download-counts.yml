@@ -25,7 +25,9 @@ jobs:
             total=$(gh api "repos/$repo/releases?per_page=100" --jq '[.[].assets[].download_count] | add // 0')
             counts=$(jq --arg k "$internal" --argjson v "$total" '. + {($k): $v}' <<< "$counts")
           done
-          jq --argjson c "$counts" 'map(.DownloadCount = ($c[.InternalName] // .DownloadCount))' repo.json > repo.json.new
+          # Monotonic: the counter never decreases, even if a release disappears or the
+          # API hiccups. The existing value in repo.json acts as the floor.
+          jq --argjson c "$counts" 'map(.DownloadCount = ([($c[.InternalName] // 0), (.DownloadCount // 0)] | max))' repo.json > repo.json.new
           mv repo.json.new repo.json
 
       - name: Commit if changed

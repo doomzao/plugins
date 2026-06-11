@@ -46,7 +46,7 @@ Rules:
 
 - Tag format is `vX.Y.Z` (three numbers; the csproj's fourth digit stays 0 in tags).
 - The asset must be the file named exactly `latest.zip`. The download links in `repo.json` use `/releases/latest/download/latest.zip`, which always resolves to the newest release, so the links never need to change.
-- Never edit or delete an existing release to "fix" it. If a release is bad, ship a new higher version; `releases/latest` will point at it automatically.
+- Never edit or delete an existing release to "fix" it. If a release is bad, ship a new higher version; `releases/latest` will point at it automatically. **Deleting a release also deletes its download counts on GitHub**, which is the source of the installer's download counter; this is the main way to lose counter history permanently.
 
 ### 3. Update repo.json and push (this is what triggers the update)
 
@@ -59,6 +59,8 @@ In this repository, edit the plugin's entry in `repo.json`:
 | `AssemblyVersion` | The new four-part version (e.g. `0.2.0.0`) |
 | `LastUpdate` | Current unix timestamp (`[int][double]::Parse((Get-Date -UFormat %s))` in PowerShell) |
 | `DalamudApiLevel` | Only if Dalamud bumped its API level since the last release |
+
+**Never touch `DownloadCount`.** The counter workflow owns that field exclusively: it recomputes it from GitHub release stats and never lets it decrease. Manually setting it (especially to 0) risks erasing counter history until the next workflow run, and git history is the only undo.
 
 Then commit and push:
 
