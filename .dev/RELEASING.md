@@ -50,6 +50,8 @@ Rules:
 
 ### 3. Update repo.json and push (this is what triggers the update)
 
+**Run `git pull --rebase` first.** The download counter workflow also commits to `repo.json`, so the remote may be ahead of your local copy.
+
 In this repository, edit the plugin's entry in `repo.json`:
 
 | Field | Set to |
