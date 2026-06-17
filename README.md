@@ -19,3 +19,4 @@ One URL gives you access to all my FFXIV plugins, current and future. Add it onc
 | Plugin | Description |
 |---|---|
 | [Mask of Kefka](https://github.com/doomzao/mask-of-kefka) | Streamer mode for FFXIV: stream the game without showing Dalamud overlays |
+| [True Ping](https://github.com/doomzao/true-ping) | Your real FFXIV ping: the latency you actually feel, with jitter and packet loss, even through a proxy or VPN |
